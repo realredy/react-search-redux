@@ -1,8 +1,5 @@
-import { 
-         ALL_MEETUP_PAGE, 
-         FAVORITES_PAGE, 
-         NEW_MEETUP_PAGE 
-        } from "./../../utils/constants";
+ 
+import { useState } from "react";
 import AllMeetupsPage from "../../pages/AllMeetupsPage";
 import FavoritesPage from "../../pages/Favorites";
 import NewMeetupsPage from "../../pages/NewMeetup";
@@ -10,17 +7,34 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link,
-  useRouteMatch,
-  useParams
+  Link, 
 } from "react-router-dom";
 import Layout from "../../components/layout/Layout";
-
+import { useSelector } from "react-redux";
 import classes from "./MainNavigation.module.css";
 
-export default function MainNavigation({ setPage }) {
+export default function MainNavigation() {
+
+
+
+  const [scroll, setScroll] = useState("");
+  
+
+    window.onscroll = () => { 
+      
+      let y = window.scrollY;
+      y < 80 ? console.log('up'): console.log('down')  ;
+      
+       y < 80 ? setScroll("") : setScroll("fixed"); 
+   
+  }
+
+
+
+  const counterFavorite = useSelector((state) => state.meetupReducer.added);
+    
   return (  <>  
-      <header className={classes.header} data-test="navigation-header">
+      <header className={`${classes.header} ${scroll}`} data-test="navigation-header">
         <div className={classes.logo}>React Meetups</div>
         <nav>
           <ul>
@@ -32,7 +46,7 @@ export default function MainNavigation({ setPage }) {
               <Link to="/new">Add New Meetup</Link>
             </li>
             <li> 
-                <span className={classes.badge}>{0}</span> 
+                <span className={classes.badge}>{counterFavorite}</span> 
               <Link to="/favorite">My Favorites</Link>
             </li>
           </ul>

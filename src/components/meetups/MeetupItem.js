@@ -1,8 +1,14 @@
 
 import classes from "./MeetupItem.module.css";
 import Card from "../ui/Card";
+import { useSelector, useDispatch } from 'react-redux'; 
+import addMeetup from "./meetuptReducer/meetupAction";
 
 export default function MeetupItem({infocar}) { 
+ 
+const dispatcher = useDispatch();
+    
+   let TextButton = infocar.favorite ?  'Added to favorite' : 'Add to favorites' ;
  
 
   return (
@@ -17,7 +23,7 @@ export default function MeetupItem({infocar}) {
           <p>{infocar.description}</p>
         </div>
         <div className={classes.actions}>
-          <button>Add to favorites</button>
+        <button disabled={infocar.favorite} onClick={()=>{dispatcher( addMeetup(infocar.id) )}} id={`MeetupItem_${infocar.id}`}>{TextButton}</button>
         </div>
       </Card>
     </li>

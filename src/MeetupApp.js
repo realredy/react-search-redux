@@ -1,19 +1,20 @@
 import { useState } from "react";
-
-// import AllMeetupsPage from "./pages/AllMeetupsPage";
-// import FavoritesPage from "./pages/Favorites";
-// import NewMeetupsPage from "./pages/NewMeetup";
-// import { ALL_MEETUP_PAGE, FAVORITES_PAGE, NEW_MEETUP_PAGE } from "./utils/constants";
+//  import { useScrollFetch } from "./util-hooks/scrollFetch";
+//  import headerPosition from "./util-hooks/headerPosition";
+ 
 import { BrowserRouter as Router} from "react-router-dom"; 
 import MainNavigation from "./components/layout/MainNavigation";
 
+
+const HEADER_CLASS = 'MainNavigation_header__A+kIW';
+   const headerContainer = document.getElementsByClassName(HEADER_CLASS)[0]; 
 
 function MeetupApp() { 
  
   return (
     <Router> 
       <div data-test="app">
-        <MainNavigation setPage={setPage} /> 
+        <MainNavigation /> 
       </div>  
     </Router>
    

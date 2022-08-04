@@ -4,9 +4,7 @@ import { useFetch } from "../util-hooks/useFetch";
 
 
 export default function AllMeetupsPage() {
-  const { data } = useFetch({
-    url: '/data.json',
-  }); 
+  const { data } = useFetch(); 
   
 if (!data) return <p>Loading... </p>;
    
