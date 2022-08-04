@@ -22,10 +22,8 @@ export default function MainNavigation() {
 
     window.onscroll = () => { 
       
-      let y = window.scrollY;
-      y < 80 ? console.log('up'): console.log('down')  ;
-      
-       y < 80 ? setScroll("") : setScroll("fixed"); 
+      let positionYWindows = window.scrollY;
+      positionYWindows < 80 ? setScroll("") : setScroll("fixed"); 
    
   }
 
