@@ -1,3 +1,12 @@
+# Prueba tehórica:
+
+He pensado en reorganizar la estructura de la base de datos, con esta reorganización pueden crecer el servicio
+premium y por ende los demás, ya que son servicios diferentes por el cual deben tener sus propios items
+
+________________________________________________________________________________________________________________
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
