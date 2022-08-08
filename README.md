@@ -1,8 +1,10 @@
 # Prueba tehórica:
 
-He pensado en reorganizar la estructura de la base de datos, con esta reorganización pueden crecer el servicio
-premium y por ende los demás, ya que son servicios diferentes por el cual deben tener sus propios items
+Tras analizar el código, he notado que se ha violado la reglas de principios solid en al menos tres ocasiones, principalmente el principio de responsabilidad única, el cual dicta que cada clase debe tener una única tarea. 
 
+Ambas getTotal y getMultimediaContent,  deberían estar separadas por clasess que deriven estas tareas por separado. 
+
+Como extra registeredUser rompe las reglas de las buenas prácticas que este nombre en sí no define lo que esta realizando esta clase, entonces teniendo en cuenta que solo un usuario registrado podría puede elegir un plan, recomiendo separar esta clase para realizar esta verificación.
 ________________________________________________________________________________________________________________
 
 
