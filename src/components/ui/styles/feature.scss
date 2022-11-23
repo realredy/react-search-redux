@@ -1,0 +1,112 @@
+@import '../../../GeneralStyle/General.scss';
+
+.feature {
+    &_inner {
+        &-header {
+            @include NoMarginCentredBetwen;
+
+            &-h1 {
+                font-size: $textHeader;
+                text-transform: capitalize;
+            }
+
+            &-cartButton {
+                border: none;
+                background: $colorDark;
+                color: $colorWhite;
+                font-size: $textSubHeader;
+                font-weight: 100;
+                padding: 0 35px;
+                line-height: 40px;
+            }
+        }
+
+        &-imageContainer {
+            position: relative;
+
+            img {
+                width: 100%;
+            }
+
+            b {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                padding: 20px;
+                font-size: $textParagrap;
+                background: $colorWhite;
+            }
+        }
+
+        &-descModule {
+            @include NoMarginTopdBetwen;
+            padding: 40px 0;
+
+            &-items {
+                width: 50%;
+
+                h2 {
+                    font-size: $textSubHeader;
+                }
+
+                h3 {
+                    color: $colorGray;
+                }
+            }
+
+            &-desc {
+                width: 50%;
+            }
+
+            &-Module {
+                width: 30%;
+                min-width: 400px;
+            }
+        }
+    }
+
+}
+  
+@media (max-width: $layout-breakpoint-medium) {
+    .feature {
+        &_inner {
+            &-descModule {
+                flex-direction: column;
+                &-items {
+                    width: 100%; 
+                    margin-bottom: 40px;
+                }
+
+                &-Module {
+                    width: 100%; 
+                }
+            }
+            &-imageContainer { 
+    
+                b { 
+                    padding: 10px; 
+                    line-height: 0.5;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $layout-breakpoint-small) {
+   
+    .feature {
+        &_inner {
+            &-header { 
+                &-h1 {
+                    font-size: $textSubHeader; 
+                }
+                &-cartButton { 
+                    font-size: $textParagrap;
+                    font-weight: 100;
+                    padding: 0 25px;
+                    line-height: 30px;
+                }
+            }
+        }
+    }
+    }

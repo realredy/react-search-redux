@@ -1,0 +1,22 @@
+@import '../../../GeneralStyle/General.scss';
+.content{
+   
+    &_gellery{
+        margin-top: 100px;
+        border-top: solid 2px $colorSecondary;
+        &-wrappSidebarCollection{
+            @include NoMarginTopdBetwen;
+        }
+    }
+}
+
+@media (max-width: $layout-breakpoint-medium) {
+    .content{
+   
+        &_gellery{ 
+            &-wrappSidebarCollection{
+               flex-direction: column;
+            }
+        }
+    }
+}

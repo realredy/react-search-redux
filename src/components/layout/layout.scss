@@ -1,0 +1,7 @@
+@import "../../GeneralStyle/General.scss";
+.main {
+    margin: 0 auto;  
+    @include PaddingBig;
+    @include boxedContent;
+  }
+  

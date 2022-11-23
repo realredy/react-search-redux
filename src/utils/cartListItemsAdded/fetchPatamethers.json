@@ -1,0 +1,5 @@
+{
+  "method": "POST",
+  "headers": {"Accept": "application/json", "Content-Type": "application/json"},
+  "body":  {"categories":["people"], "sort": {"key": "price", "type": "DEC" }}
+}

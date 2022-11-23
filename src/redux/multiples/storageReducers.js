@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux'; 
-import meetupReducer from '../../components/meetups/meetuptReducer/meetupReducer';
-const storagesReducers = combineReducers({
-    meetupReducer: meetupReducer
+import cartReducer from '../../components/container/cartReducer/cartReducer'; 
+
+const storagesReducers = combineReducers({  
+    cartReducer:  cartReducer,
 }); 
 
 export default storagesReducers;

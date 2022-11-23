@@ -1,0 +1,61 @@
+@mixin boxedContent {
+    width: 100%;
+    max-width: 1440px;
+}
+
+@mixin NoMarginCentred {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+@mixin NoMarginCentredBetwen {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+
+@mixin NoMarginTopdBetwen {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between; 
+}
+@mixin NoMarginTopdEnd {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end; 
+}
+
+@mixin PaddingSmall {
+    padding: 10px;
+}
+
+@mixin PaddingMediun {
+    padding: 15px;
+}
+
+@mixin PaddingBig {
+    padding: 20px;
+}
+
+// Colors 
+$colorWhite: #ffffff;
+$colorDark: #000000;
+$colorGray: #949494;
+$colorSecondary: #c9c9c9;
+$textHeader: 2em;
+$textSubHeader: 1.3em;
+$textParagrap: 1em;
+
+// media querys
+$layout-breakpoint-small: 500px;
+
+$layout-breakpoint-medium: 800px;
+
+$layout-breakpoint-large: 1050px;

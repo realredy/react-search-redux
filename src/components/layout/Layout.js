@@ -1,10 +1,10 @@
 
-import classes from './Layout.module.css';
+import './layout.scss';
 
 export default function Layout({children}) {
   return (
-    <div>
-      <main className={classes.main}>{children}</main>
-    </div>
+    <>
+      <main className="main">{children}</main>
+    </>
   );
 }

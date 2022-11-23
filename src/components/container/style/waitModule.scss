@@ -1,0 +1,6 @@
+ @import '../../../GeneralStyle/General.scss';
+
+ .WaitModule{
+    height: 100vh;  
+    @include NoMarginCentred;
+ }

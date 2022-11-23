@@ -1,0 +1,32 @@
+@import '../../../GeneralStyle/General.scss';
+.PeopleAlsoBuy{
+  h2{
+    text-align: right;
+    margin-bottom: 30px;
+    font-size: $textSubHeader;
+  }
+    &_inner{
+     @include NoMarginTopdBetwen;
+     &-items{
+       width: 30%;
+       &-img{
+        height: 170px;
+       }
+       &-span{
+        display: block;
+        color: $colorGray;
+       }
+       &-b{
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 100px;
+        text-overflow: ellipsis;
+       }
+       &-p{
+        margin: 0;
+        color: $colorGray;
+       }
+     }
+    }
+}

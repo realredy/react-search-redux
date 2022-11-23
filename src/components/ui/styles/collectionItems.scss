@@ -1,0 +1,114 @@
+@import '../../../GeneralStyle/General.scss';
+
+.CollectionItems {
+    width: 75%;
+
+    &_inner {
+        @include NoMarginTopdBetwen;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+
+        &-items {
+            width: 30%;
+            margin-right: 3%;
+            margin-bottom: 3%;
+            &-imgSellerAddToCart {
+                width: 100%;
+                height: 400px;
+                overflow: hidden;
+                position: relative; 
+                &:hover{
+                    button { 
+                        bottom: 0px;
+                    }
+                }
+                img {
+                    height: 110%;
+                }
+
+                span {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background: white;
+                    padding: 0 20px;
+                    line-height: 2;
+                }
+
+                button {
+                    position: absolute;
+                    bottom: -50px;
+                    left: 0;
+                    width: 100%;
+                    background: black;
+                    color: white;
+                    line-height: 3;
+                    border: none;
+                    font-size: 1em;
+                    cursor: pointer;
+                    transition: all 0.4s;
+                    -moz-transition: all 0.4s;
+                    -webkit-transition: all 0.4s;
+                }
+            } 
+            &-info{
+            &-category, &-price{
+                color: $colorGray;
+                line-height: 2;
+            }
+            &-name{
+                font-size: $textSubHeader;
+                line-height: 1.1;
+            } 
+        }
+        }
+
+       
+    }
+}
+
+@media (max-width: $layout-breakpoint-large) {
+    .CollectionItems {
+        width: 80%;
+    
+        &_inner {
+            @include NoMarginTopdBetwen;
+            justify-content: space-between;
+            flex-wrap: wrap;
+    
+            &-items {
+                width: 49%;
+                margin-right: 0%; 
+                 margin-bottom: 30px;
+                &-imgSellerAddToCart {  
+                    img {
+                        width: 120%;
+                    }
+                    button {
+                        position: absolute;
+                        bottom: 0; 
+                    }
+                     
+                }  
+            }
+    
+           
+        }
+    }
+}
+
+@media (max-width: $layout-breakpoint-medium) {
+    .CollectionItems {
+        width: 100%; 
+    }
+}
+@media (max-width: $layout-breakpoint-small) {
+   
+.CollectionItems { 
+    &_inner { 
+        &-items {
+            width: 100%;
+        }
+    }
+}
+}
