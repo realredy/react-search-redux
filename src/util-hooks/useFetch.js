@@ -1,18 +1,22 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux"; 
    import axios from "axios";
- export const useFetch = (parameters = null, paginate = '?page=1') => {
+ export const useFetch = () => {
 
-  const [data, setData] = useState(null);
+  const [data, setData] = useState({});
    
   
   useEffect(() => { 
-    fetch(process.env.REACT_APP_COLLECTION+paginate, {...parameters, body: JSON.stringify(parameters.body) })
+         
+       function getPodcats(){
+        
+   
+    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json')}` )
       .then(
         async getResponse => { 
-        const transformedResponse = await getResponse.json(); 
-        // check for error response
-        if (!transformedResponse.ok) {
+         
+        const transformedResponse = await getResponse.json();  
+        if (!transformedResponse.contents) {
           setData(
             {
               errorMessage: transformedResponse.message,
@@ -20,14 +24,14 @@ import { useSelector } from "react-redux";
             }
           )
         }
-        return transformedResponse.data;
+         return transformedResponse.contents;
       } 
       )
-      .then(transformedResponse => {
-        setData(
-          {
-            transformedResponse 
-          }
+      .then(transformedResponse => {  
+       
+ 
+        setData( 
+            {transformedResponse } 
         )
       }
       )
@@ -35,9 +39,13 @@ import { useSelector } from "react-redux";
         setData({ errorMessage: error.toString() });
         console.error('There was an error!', error);
       })
+
+          }
+
+      getPodcats();
  
 
-  }, [parameters, paginate]);
+  }, []);
 
    
   return {

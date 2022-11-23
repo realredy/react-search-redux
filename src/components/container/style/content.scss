@@ -1,22 +1,37 @@
-@import '../../../GeneralStyle/General.scss';
-.content{
-   
-    &_gellery{
-        margin-top: 100px;
-        border-top: solid 2px $colorSecondary;
-        &-wrappSidebarCollection{
-            @include NoMarginTopdBetwen;
-        }
-    }
-}
-
-@media (max-width: $layout-breakpoint-medium) {
-    .content{
-   
-        &_gellery{ 
-            &-wrappSidebarCollection{
-               flex-direction: column;
-            }
-        }
-    }
-}
+.content_gellery {
+    padding: 120px 0;
+  }
+.content >.content_gellery > .content_gellery-wrappSidebarCollectionPodcats {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto; 
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-between
+  }
+   .content_gellery-wrappSidebarCollectionPodcats .content_gellery-wrappSidebarCollectionPodcats-cart {
+    width: 17%;
+     box-shadow: 1px 2px 4px gray;
+     border-radius: 10px;
+     margin-right: 2%;
+     margin-bottom: 8%; 
+     display:flex;
+     align-items:center;
+     flex-direction:column;
+     padding:20px;
+  }
+  
+  .content_gellery-wrappSidebarCollectionPodcats-cart > img{
+    width: 90%; 
+    border-radius:50%;
+    margin-top: -30%;
+    border: solid 7px gray;
+  }
+  .content_gellery-wrappSidebarCollectionPodcats-cart > h3{
+  font-size: 14px;
+    text-align: center;
+  }
+  .content_gellery-wrappSidebarCollectionPodcats-cart > span{
+  font-size: 10px;
+    text-align: center;
+  }

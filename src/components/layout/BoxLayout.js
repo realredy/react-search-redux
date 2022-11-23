@@ -1,6 +1,4 @@
-
-import './boxLayout.scss';
-
+ 
 export default function BoxLayout({children}) {
   return (
     <div className="header_boxed">

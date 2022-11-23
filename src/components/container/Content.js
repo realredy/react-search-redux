@@ -1,26 +1,28 @@
 import { useSelector, useDispatch } from 'react-redux'; 
-import "./style/content.scss"
-import Sidebar from "../ui/Sidebar";
-import Featured from '../ui/Featured';
-import Collections from '../ui/Collections';
-import GalleryHeader from '../ui/GalleryHeader';
+import "./style/content.scss"   
 import { useFetch } from '../../util-hooks/useFetch';
 
 
-export default function Content({ product }) {
-
-  
-  
-  
+export default function Content({ podcats }) {
+ const {feed} = JSON.parse(podcats);
+  //  console.info('podcats:: ',  feed)
 
   return (
-    <div className='content'>
-      <Featured feature={product} />
-      <div className='content_gellery'>
-        <GalleryHeader />
-        <div className='content_gellery-wrappSidebarCollection'> 
-        <Sidebar categorys={product} /> 
-        <Collections allProduct={product} />
+    <div className='content'> 
+      <div className='content_gellery'> 
+        <div className='content_gellery-wrappSidebarCollectionPodcats'> 
+         {feed.entry.map(potcat=>{
+          return (
+            <>
+            <div className='content_gellery-wrappSidebarCollectionPodcats-cart'>
+              <img src={ potcat['im:image'][0].label }    alt="imge of podcats"/>
+                <h3>{potcat['im:name'].label}</h3>
+                <span>Author: {potcat['im:artist'].label}</span>
+            </div>
+             {console.log(potcat)}
+            </>
+          )
+         })}
         </div>
       </div>
 
