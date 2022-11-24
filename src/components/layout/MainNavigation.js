@@ -1,23 +1,31 @@
  
  
-import { useSelector } from "react-redux";    
-import BoxLayout from "./BoxLayout"
-
+import { useSelector } from "react-redux";     
+import {
+  BrowserRouter as Router, 
+  Route,
+  Routes, 
+  Link
+} from "react-router-dom";
+import Single from "../container/single";
+import BokokodeApp from "../../BokokodeApp";
 export default function MainNavigation() {
   
  
 
   return (  <>  
       <header className="header" data-test="navigation-header"> 
-      <BoxLayout>
+      
         <nav className="header_boxed-inner-nav">
-          <ul className="header_boxed-inner-nav-ul">
-            <li className="header_boxed-inner-nav-ul-logo">  
-              <a href="/">Postcator</a>
-            </li>
-          </ul>
+      
+        <Routes> 
+            <Route exact path="/" element={<BokokodeApp />} /> 
+          
+            <Route path="/podcast/:id" element={<Single />} />
+            </Routes>
+    
         </nav> 
-        </BoxLayout>
+        
       </header>      
 
         

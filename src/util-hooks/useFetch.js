@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux"; 
    import axios from "axios";
- export const useFetch = () => {
+ export const useFetch = (id=null) => {
 
   const [data, setData] = useState({});
    
@@ -9,13 +9,21 @@ import { useSelector } from "react-redux";
   useEffect(() => { 
          
        function getPodcats(){
+        let URLTOFECH;
+        if(!id){
+          URLTOFECH = process.env.REACT_APP_POPCADS_COLLECTION
+        } else {
+          URLTOFECH = process.env.REACT_APP_PODCADS_SINGLE+id
+        }
+        console.log('El id desde use fetch: ',process.env.REACT_APP_POPCADS_COLLECTION)
         
-   
-    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json')}` )
+        
+    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(`${URLTOFECH}`)}` )
       .then(
         async getResponse => { 
          
         const transformedResponse = await getResponse.json();  
+        
         if (!transformedResponse.contents) {
           setData(
             {
