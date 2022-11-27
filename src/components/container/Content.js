@@ -6,7 +6,7 @@ import "./style/content.scss"
 
 export default function Content({ podcats }) {
  const {feed} = JSON.parse(podcats);
- console.log(feed)
+ console.log('feeds:',feed)
   return (
     <div className='content'> 
       <div className='content_gellery'> 

@@ -9,12 +9,13 @@ import WaitModule from "./components/container/WaitModule";
 function BokokodeApp() { 
 
     const  collectionPodcats =  useFetch();
- 
+    console.log("🚀 ~ file:  ~ collectionPodcats", collectionPodcats)
+    
     return ( 
       <div data-test="app">  
        {/* <MainNavigation /> */}
-        { collectionPodcats.data.transformedResponse && <Content podcats={collectionPodcats.data.transformedResponse} />  } 
-        { !collectionPodcats.data.transformedResponse &&  <WaitModule />   } 
+        { collectionPodcats.data.data && <Content podcats={collectionPodcats.data.data} />  } 
+        { !collectionPodcats.data.data &&  <WaitModule />   } 
         
       </div>   
   );

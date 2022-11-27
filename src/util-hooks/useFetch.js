@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux"; 
-   import axios from "axios";
+ // import { createClient } from '@redis';// ! experimental llamar a la libreria de redis
+
  export const useFetch = (id=null) => {
 
   const [data, setData] = useState({});
@@ -8,7 +9,7 @@ import { useSelector } from "react-redux";
   
   useEffect(() => { 
          
-       function getPodcats(){
+   async function getPodcats(){
         let URLTOFECH;
         if(!id){
           URLTOFECH = process.env.REACT_APP_POPCADS_COLLECTION
@@ -17,43 +18,38 @@ import { useSelector } from "react-redux";
         }
         console.log('El id desde use fetch: ',process.env.REACT_APP_POPCADS_COLLECTION)
         
-        
-    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(`${URLTOFECH}`)}` )
-      .then(
-        async getResponse => { 
-         
-        const transformedResponse = await getResponse.json();  
-        
-        if (!transformedResponse.contents) {
-          setData(
-            {
-              errorMessage: transformedResponse.message,
-              errorText: transformedResponse.statusText
-            }
-          )
+      const options = {
+        method: 'GET',
+        headers: {
+          'Access-Control-Allow-Origin': '*'
         }
-         return transformedResponse.contents;
-      } 
-      )
-      .then(transformedResponse => {  
+      };
+      
+        try {
+         fetch( URLTOFECH , options)
+        .then(response  =>  response.json() )
+        .then(getData => {
+          console.log("🚀 ~ file: useFetch.js ~ line 61 ~ getPodcats ~ getData", getData)
+          const status = getData.status.http_code
        
+           const data =  getData.contents
+          
+         status === 200 ? setData({data}) : setData({msg: `No data from service`})
+        })
  
-        setData( 
-            {transformedResponse } 
-        )
+       
+      } catch (err) {
+        console.log(err);
+        setData({msg: `Internal Server Error.`});
       }
-      )
-      .catch(error => {
-        setData({ errorMessage: error.toString() });
-        console.error('There was an error!', error);
-      })
-
           }
 
       getPodcats();
  
 
   }, []);
+      
+ 
 
    
   return {
