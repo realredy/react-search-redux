@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux"; 
- // import { createClient } from '@redis';// ! experimental llamar a la libreria de redis
-
- export const useFetch = (id=null) => {
+import { useParams } from "react-router-dom";
+ 
+ export const useFetch = (id=null) => {   
+ 
 
   const [data, setData] = useState({});
    
+ 
   
   useEffect(() => { 
          
@@ -14,9 +15,9 @@ import { useSelector } from "react-redux";
         if(!id){
           URLTOFECH = process.env.REACT_APP_POPCADS_COLLECTION
         } else {
-          URLTOFECH = process.env.REACT_APP_PODCADS_SINGLE+id
+          URLTOFECH = `${process.env.REACT_APP_POPCADS_COLLECTION}/`+id;
         }
-        console.log('El id desde use fetch: ',process.env.REACT_APP_POPCADS_COLLECTION)
+        
         
       const options = {
         method: 'GET',
@@ -25,11 +26,11 @@ import { useSelector } from "react-redux";
         }
       };
       
-        try {
-         fetch( URLTOFECH , options)
+        try {  
+         fetch( URLTOFECH, options)
         .then(response  =>  response.json() )
-        .then(getData => {
-          console.log("🚀 ~ file: useFetch.js ~ line 61 ~ getPodcats ~ getData", getData)
+        .then(getData => {  
+          
           const status = getData.status.http_code
        
            const data =  getData.contents
@@ -43,11 +44,13 @@ import { useSelector } from "react-redux";
         setData({msg: `Internal Server Error.`});
       }
           }
+    
 
       getPodcats();
  
 
-  }, []);
+  }, [id]);
+      
       
  
 

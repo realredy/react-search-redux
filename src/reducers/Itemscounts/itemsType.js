@@ -1,0 +1,2 @@
+const COUNT_RESULTS = 'COUNT_RESULTS'
+ export default COUNT_RESULTS

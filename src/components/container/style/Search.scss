@@ -1,0 +1,15 @@
+@import './general.scss';
+
+.search{
+    @include boxed;
+
+    &-wrapper{
+        @include flex-row;
+        justify-content: space-between;
+        input{
+            height: 30px;
+            min-width: 200px;
+        }
+    }
+    
+}

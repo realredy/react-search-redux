@@ -1,8 +1,7 @@
  
  
 function DetailsPodcats({data}) { 
-    console.log('data from the details: ', JSON.parse(data) )
-
+   
    const {results} = JSON.parse(data);
    const {resultCount} = JSON.parse(data);
    

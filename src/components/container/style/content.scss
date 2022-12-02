@@ -1,37 +1,68 @@
-.content_gellery {
-    padding: 120px 0;
-  }
-.content >.content_gellery > .content_gellery-wrappSidebarCollectionPodcats {
-    width: 90%;
-    max-width: 1200px;
-    margin: 20px auto; 
-    display:flex;
-    flex-wrap:wrap;
-    justify-content: space-between
-  }
-   .content_gellery-wrappSidebarCollectionPodcats .content_gellery-wrappSidebarCollectionPodcats-cart {
-    width: 17%;
-     box-shadow: 1px 2px 4px gray;
-     border-radius: 10px;
-     margin-right: 2%;
-     margin-bottom: 8%; 
-     display:flex;
-     align-items:center;
-     flex-direction:column;
-     padding:20px;
-  }
-  
-  .content_gellery-wrappSidebarCollectionPodcats-cart > img{
-    width: 90%; 
-    border-radius:50%;
-    margin-top: -30%;
-    border: solid 7px gray;
-  }
-  .content_gellery-wrappSidebarCollectionPodcats-cart > h3{
-  font-size: 14px;
-    text-align: center;
-  }
-  .content_gellery-wrappSidebarCollectionPodcats-cart > span{
-  font-size: 10px;
-    text-align: center;
-  }
+@import './general.scss';
+
+.content{
+    @include boxed;
+    &_gellery{
+        &-wrapper-products{
+            @include flex-row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            &-items{
+                width: 24%;
+                max-width: 250px;
+                background: white;
+                margin-bottom: 20px;
+                border: solid 1px #cecece;
+border-radius: 5px;
+                &-imageBrands{
+                    position: relative;
+                    padding: 5px;
+                     img{
+                        width: 100%;
+                     }
+                    &-brand{
+                        position: absolute;
+                        z-index: 2;
+                        background: whitesmoke;
+                        line-height: 30px;
+                        padding: 0 20px 0 10px;
+                        border-top-right-radius: 10px;
+                        border-bottom-right-radius: 10px;
+                        box-shadow: 1px 2px 4px gray;
+                    }
+                }
+                &-info {
+                    padding: 0 10px;
+                    h2{
+                        font-size: 14px;
+                        text-align: center
+                      }
+                      p{
+                        display: inline-block;
+                         text-align: center;
+                           margin: 0
+                           pre{
+                            display: inline-block;
+                           }
+                       }
+                       a{
+                        display:  block;
+                         text-align: center;
+                         margin: 0;
+                         background: black;
+                         color: white;
+                         text-decoration: none;
+                         line-height: 30px;
+                         border-radius: 5px;
+                         margin-bottom: 10px
+                       }
+                  }
+                 
+                   
+                 
+                  
+            }
+        }
+        
+    }
+}

@@ -1,31 +1,51 @@
-import { useSelector, useDispatch } from 'react-redux'; 
-import "./style/content.scss"   
-// import { useFetch } from '../../util-hooks/useFetch';
-  import { Link, useParams } from 'react-router-dom';
+ 
+import "./style/content.scss";   
+
+import Collection from "./Collection"; 
+
+import * as action from "../../reducers/Itemscounts/itemAction";
+import { useSelector, useDispatch } from "react-redux";
 
 
-export default function Content({ podcats }) {
- const {feed} = JSON.parse(podcats);
- console.log('feeds:',feed)
-  return (
-    <div className='content'> 
-      <div className='content_gellery'> 
-        <div className='content_gellery-wrappSidebarCollectionPodcats'> 
-         {feed.entry.map((potcat) => {
+export default function Content({ items,searchResults }) { 
+
+  const dispatch = useDispatch();
+ 
+  let collection;
+    if(searchResults){ 
+      let itemsCollections = JSON.parse(items);
+      let resultsSearchFitred = 
+      itemsCollections.filter( individualItems => {
+        let allModelsToBeFound = individualItems.model.toLowerCase(); 
+        return allModelsToBeFound.includes(searchResults.toLowerCase()) 
+          })
+          
+          // dispatch(action.resultCount(resultsSearchFitred.length ))
+          collection = resultsSearchFitred;
+          console.log("🚀 ~ file: Content.js:25 ~ Content ~ resultsSearchFitred", resultsSearchFitred)
+        }else{
+          collection = JSON.parse(items);
+        }
+
+   
+  console.log(" 🚩collection::🚩 🚩", collection )
+ 
+
           return (
-            <>
-            <div key={potcat['im:name'].label} className='content_gellery-wrappSidebarCollectionPodcats-cart'>
-              <img src={ potcat['im:image'][0].label }    alt="imge of podcats"/>
-                <h3><Link to={`${'/podcast/'}`+potcat.id.attributes['im:id'] }>{potcat['im:name'].label}</Link></h3>
-                <span>Author: {potcat['im:artist'].label}</span>
+            <div className='content'> 
+              <div className='content_gellery'> 
+                <div className='content_gellery-wrapper-products'> 
+             
+               
+                { collection.length < 1 && typeof collection !== 'object' ?
+                      <h4> 🔍 No Items Found.... </h4>
+                 : <Collection collections={collection} />   }
+                 </div>
+              </div> 
             </div>
-             {/* {console.log(potcat.id.attributes['im:id'])} */}
-            </>
-          )
-         })}
-        </div>
-      </div>
+          );
 
-    </div>
-  );
+   
+
 }
+  

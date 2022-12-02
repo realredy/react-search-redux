@@ -1,0 +1,17 @@
+.content_single {
+    background: #ebebeb;
+    padding: 10px;
+    &-wrapper{
+        display: flex;
+        justify-content: space-between;
+        &-image{
+            width: 50%;
+            img{
+                width:90%;
+                border-radius: 30px;
+                max-width: 340px;
+              }
+          }
+      }
+  }
+  

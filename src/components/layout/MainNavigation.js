@@ -8,7 +8,7 @@ import {
   Link
 } from "react-router-dom";
 import Single from "../container/single";
-import BokokodeApp from "../../BokokodeApp";
+import ProductApp from "../../ProductApp";
 export default function MainNavigation() {
   
  
@@ -19,9 +19,9 @@ export default function MainNavigation() {
         <nav className="header_boxed-inner-nav">
       
         <Routes> 
-            <Route exact path="/" element={<BokokodeApp />} /> 
+            <Route exact path="/" element={<ProductApp />} /> 
           
-            <Route path="/podcast/:id" element={<Single />} />
+            <Route path="/single/:id" element={<Single />} />
             </Routes>
     
         </nav> 
